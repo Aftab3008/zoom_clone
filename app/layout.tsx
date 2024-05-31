@@ -3,8 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
-import { start } from "repl";
-
+import { Toaster } from "@/components/ui/toaster";
+import "@stream-io/video-react-sdk/dist/css/styles.css";
 const inter = Inter({ subsets: ["latin"] });
 
 const localiztion = {
@@ -55,7 +55,10 @@ export default function RootLayout({
       localization={localiztion}
     >
       <html lang="en">
-        <body className={`${inter.className} bg-dark-2`}>{children}</body>
+        <body className={`${inter.className} bg-dark-2`}>
+          {children}
+          <Toaster />
+        </body>
       </html>
     </ClerkProvider>
   );
